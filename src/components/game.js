@@ -31,8 +31,19 @@ export class Game extends Component {
 
   handleClick(index) {
     return this.setState({
-      squares: this.state.squares.map((square, i) =>
-        i === index ? { value: square.value, flipped: true } : square )
+      squares: this.state.squares.map((square, i) => {
+        if (i === index) {
+          if (square.flipped === true) {
+            console.log(i, square)
+            return { value: square.value, flipped: false }
+          } else {
+            console.log(false)
+          }
+          return { value: square.value, flipped: true }
+        } else {
+          return square
+        }
+      })
     })
   };
 
