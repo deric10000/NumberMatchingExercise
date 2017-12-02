@@ -1,0 +1,20 @@
+body {
+  font: 14px sans-serif;
+  margin: auto;
+}
+
+.square {
+  background: #18F9F9;
+  border: 1px solid white;
+  float: left;
+  font-size: 32px;
+  font-weight: bold;
+  padding: 0;
+  text-align: center;
+  width: 25%;
+  height: 75px;
+}
+
+.square:focus {
+  outline: none;
+}
