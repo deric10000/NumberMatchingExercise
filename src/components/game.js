@@ -22,12 +22,12 @@ const makeSquares = () => {
   return rows;
 };
 
-var a = [];
-var b = [];
+var captureVal = [];
+var scoreArray = [];
 
 const test = (val1) => {
-  if (b.length >= 1) {
-    return val1 + b[0];
+  if (scoreArray.length >= 1) {
+    return val1 + scoreArray[0];
   } else {
     return val1;
   }
@@ -47,18 +47,18 @@ export class Game extends Component {
     return this.setState({
       squares: this.state.squares.map((square, i) => {
         if (i === index && !square.flipped) {
-          a.push(square.value);
-          if (a[0] === a[1]) {
+          captureVal.push(square.value);
+          if (captureVal[0] === captureVal[1]) {
             document.getElementsByClassName('square')[i].style.background = '#A5C663';
             document.getElementsByClassName('square')[i].style.color = 'white';
-            b[0] = square.value;
-            a = [];
+            scoreArray[0] = square.value;
+            captureVal = [];
           } else {
-            b = [];
+            scoreArray = [];
           }
           return { value: square.value, flipped: true };
         } else if (i !== index && square.flipped) {
-          a = []
+          captureVal = []
           document.getElementsByClassName('square')[i].style.background = 'black';
           return { value: square.value, flipped: false };
         } else {
