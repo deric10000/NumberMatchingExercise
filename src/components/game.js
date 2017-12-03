@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Board } from './board';
 import { Header } from './header';
+import { Score } from './score';
 
 const genRandNum = () => {
   return Math.floor(Math.random() * (1 - 8) + 8);
@@ -67,6 +68,7 @@ export class Game extends Component {
               handleClick={ this.handleClick }
               squares={ this.state.squares }
             />
+            <Score />
           </div>
     );
   };

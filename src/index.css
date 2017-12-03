@@ -41,3 +41,29 @@ body {
   text-align: center;
   font-family: "Arial Black", sans-serif;
 }
+
+.score {
+  float: left;
+  clear: both;
+  width: 100%;
+  background-color: #0A5252;
+}
+
+.score p {
+  padding: 10px;
+  margin: 10px;
+  color: #0A5252;
+  font-size: 32px;
+  text-align: center;
+  background-color: white;
+  border-radius: 5px;
+  font-family: "Helvetica", sans-serif;
+}
+
+.score h1 {
+  font-size: 36px;
+  color: #00D6D6;
+  font-weight: bold;
+  text-align: center;
+  font-family: "Arial Black", sans-serif;
+}
