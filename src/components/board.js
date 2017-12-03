@@ -1,8 +1,7 @@
 import React from 'react';
 import { Square } from './square';
 
-export const Board = ({handleClick, squares}) =>
-  (
+export const Board = ({handleClick, squares}) => (
     <div>
       { squares.map((square, i) =>
         <Square
@@ -13,4 +12,4 @@ export const Board = ({handleClick, squares}) =>
         />
       )}
     </div>
-  )
+)

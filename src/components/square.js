@@ -5,4 +5,4 @@ export const Square = ({handleClick, value, flipped}) => (
     onClick={ () => handleClick() }
     className="square"
   >{ flipped ? value : null }</button>
-);
+)

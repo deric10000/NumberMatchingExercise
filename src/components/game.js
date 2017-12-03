@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Board } from './board';
+import { Header } from './header';
 
 const genRandNum = () => {
   return Math.floor(Math.random() * (1 - 8) + 8);
@@ -39,19 +40,19 @@ export class Game extends Component {
           console.log("array: " + a, "current value: " + square.value);
           if (a[0] === a[1]) {
             console.log(a[0] + " " + a[1] + " " + true);
-            document.getElementsByClassName('square')[i].style.background = '#D4C26A';
+            document.getElementsByClassName('square')[i].style.background = '#A5C663';
             document.getElementsByClassName('square')[i].style.color = 'white';
             a = []
           } else {
-            console.log(a[0] + " " + a[1] + " " + false)
+            console.log(a[0] + " " + a[1] + " " + false);
           }
-          return { value: square.value, flipped: true }
+          return { value: square.value, flipped: true };
         } else if (i !== index && square.flipped) {
           a = []
-          document.getElementsByClassName('square')[i].style.background = 'black'
-          return { value: square.value, flipped: false }
+          document.getElementsByClassName('square')[i].style.background = 'black';
+          return { value: square.value, flipped: false };
         } else {
-          return square
+          return square;
         }
       })
     })
@@ -61,6 +62,7 @@ export class Game extends Component {
 
     return (
           <div className="game-board">
+            <Header />
             <Board
               handleClick={ this.handleClick }
               squares={ this.state.squares }
