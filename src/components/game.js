@@ -20,6 +20,8 @@ const makeSquares = () => {
   return rows;
 };
 
+var a = [];
+
 export class Game extends Component {
   constructor(props) {
     super(props);
@@ -32,14 +34,18 @@ export class Game extends Component {
   handleClick(index) {
     return this.setState({
       squares: this.state.squares.map((square, i) => {
-        if (i === index) {
-          if (square.flipped === true) {
-            console.log(i, square)
-            return { value: square.value, flipped: false }
+        if (i === index && !square.flipped) {
+          a.push(square.value)
+          console.log("array: " + a, "current value: " + square.value)
+          if (a[0] === a[1]) {
+            console.log(a[0] + " " + a[1] + " " + true)
           } else {
-            console.log(false)
+            console.log(a[0] + " " + a[1] + " " + false)
           }
           return { value: square.value, flipped: true }
+        } else if (i !== index && square.flipped) {
+          a = []
+          return { value: square.value, flipped: false }
         } else {
           return square
         }

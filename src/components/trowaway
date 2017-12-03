@@ -1,26 +1,6 @@
-const renderSquare = (index, key) => {
-  var squares =
-    <button
-      className="square"
-      index={ index }
-      key={ key }
-    >{ genRandNum() }</button>;
-
-  const checkSquares = () => {
-    return squares.props.index
-  }
-
-  console.log(
-    checkSquares()
-  );
-
-  return squares;
-};
-
-const renderSquares = () => {
-  var rows = [];
-  for (var i = 0; i < 16; i++) {
-      rows.push(renderSquare(i,i));
-  }
-  return rows;
+if (square.flipped === true) {
+  console.log(i, square)
+  return { value: square.value, flipped: false }
+} else {
+  console.log(false)
 }
