@@ -24,8 +24,9 @@ const makeSquares = () => {
 
 var captureVal = [];
 var scoreArray = [];
+var getSquare = document.getElementsByClassName('square');
 
-const test = (val1) => {
+const score = (val1) => {
   if (scoreArray.length >= 1) {
     return val1 + scoreArray[0];
   } else {
@@ -49,8 +50,8 @@ export class Game extends Component {
         if (i === index && !square.flipped) {
           captureVal.push(square.value);
           if (captureVal[0] === captureVal[1]) {
-            document.getElementsByClassName('square')[i].style.background = '#A5C663';
-            document.getElementsByClassName('square')[i].style.color = 'white';
+            getSquare[i].style.background = "#00D6D6";
+            getSquare[i].style.display = "none";
             scoreArray[0] = square.value;
             captureVal = [];
           } else {
@@ -59,13 +60,14 @@ export class Game extends Component {
           return { value: square.value, flipped: true };
         } else if (i !== index && square.flipped) {
           captureVal = []
-          document.getElementsByClassName('square')[i].style.background = 'black';
+          getSquare[i].style.background = "black";
+          getSquare[i].style.color = "white";
           return { value: square.value, flipped: false };
         } else {
           return square;
         }
       }),
-      score: test(this.state.score)
+      score: score(this.state.score)
     })
   };
 
