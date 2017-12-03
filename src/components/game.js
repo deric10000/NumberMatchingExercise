@@ -35,16 +35,20 @@ export class Game extends Component {
     return this.setState({
       squares: this.state.squares.map((square, i) => {
         if (i === index && !square.flipped) {
-          a.push(square.value)
-          console.log("array: " + a, "current value: " + square.value)
+          a.push(square.value);
+          console.log("array: " + a, "current value: " + square.value);
           if (a[0] === a[1]) {
-            console.log(a[0] + " " + a[1] + " " + true)
+            console.log(a[0] + " " + a[1] + " " + true);
+            document.getElementsByClassName('square')[i].style.background = '#D4C26A';
+            document.getElementsByClassName('square')[i].style.color = 'white';
+            a = []
           } else {
             console.log(a[0] + " " + a[1] + " " + false)
           }
           return { value: square.value, flipped: true }
         } else if (i !== index && square.flipped) {
           a = []
+          document.getElementsByClassName('square')[i].style.background = 'black'
           return { value: square.value, flipped: false }
         } else {
           return square
