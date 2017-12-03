@@ -22,16 +22,22 @@ body {
 .header {
   float: left;
   width: 100%;
-  color: white;
-  background-color: #000;
+  background-color: #0A5252;
 }
 
 .header p {
   padding: 10px;
+  margin: 10px;
+  color: #0A5252;
+  background-color: white;
+  border-radius: 5px;
+  font-family: "Helvetica", sans-serif;
 }
 
 .header h1 {
   font-size: 36px;
+  color: #00D6D6;
   font-weight: bold;
   text-align: center;
+  font-family: "Arial Black", sans-serif;
 }
