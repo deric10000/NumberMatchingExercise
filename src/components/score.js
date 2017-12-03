@@ -1,8 +1,8 @@
 import React from 'react';
 
-export const Score = () => (
+export const Score = ({score}) => (
   <div className="score">
     <h1>Score: </h1>
-    <p>0</p>
+    <p>{ score }</p>
   </div>
 )

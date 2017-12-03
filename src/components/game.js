@@ -23,12 +23,22 @@ const makeSquares = () => {
 };
 
 var a = [];
+var b = [];
+
+const test = (val1) => {
+  if (b.length >= 1) {
+    return val1 + b[0];
+  } else {
+    return val1;
+  }
+}
 
 export class Game extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      squares: makeSquares()
+      squares: makeSquares(),
+      score: 0
     };
     this.handleClick = this.handleClick.bind(this);
   };
@@ -38,14 +48,13 @@ export class Game extends Component {
       squares: this.state.squares.map((square, i) => {
         if (i === index && !square.flipped) {
           a.push(square.value);
-          console.log("array: " + a, "current value: " + square.value);
           if (a[0] === a[1]) {
-            console.log(a[0] + " " + a[1] + " " + true);
             document.getElementsByClassName('square')[i].style.background = '#A5C663';
             document.getElementsByClassName('square')[i].style.color = 'white';
-            a = []
+            b[0] = square.value;
+            a = [];
           } else {
-            console.log(a[0] + " " + a[1] + " " + false);
+            b = [];
           }
           return { value: square.value, flipped: true };
         } else if (i !== index && square.flipped) {
@@ -55,7 +64,8 @@ export class Game extends Component {
         } else {
           return square;
         }
-      })
+      }),
+      score: test(this.state.score)
     })
   };
 
@@ -63,12 +73,13 @@ export class Game extends Component {
 
     return (
           <div className="game-board">
-            <Header />
+            <Header/>
             <Board
               handleClick={ this.handleClick }
               squares={ this.state.squares }
             />
-            <Score />
+            <Score
+              score={ this.state.score }/>
           </div>
     );
   };
